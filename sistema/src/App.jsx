@@ -1,9 +1,12 @@
+import AppSeguro from "./components/AppSeguro"
 
 function App() {
 
 
   return (
-    <div>Hola</div>
+    <div>
+      <AppSeguro />
+    </div>
   )
 }
 
