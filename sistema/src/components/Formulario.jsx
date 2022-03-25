@@ -1,10 +1,19 @@
-import { Fragment } from 'react/cjs/react.production.min';
+import { Fragment, useContext } from 'react';
 import { MARCAS, YEARS, PLANES } from '../constants/index';
+import CotizadirContext from '../context/CotizadorProvider'
 
 const Formulario = () => {
+
+    const { modal, setModal } = useContext(CotizadirContext)
+
     return (
         <>
 
+            <button
+                onClick={() => setModal(true)}
+            >
+                Cambiar Modal
+            </button>
             <form>
                 <div className="my-5">
                     <label className="block mb-3 font-bold
