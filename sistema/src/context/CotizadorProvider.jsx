@@ -7,15 +7,26 @@ const CotizadorContex = createContext()
 //3 provider
 const CotizadorProvider = ({ children }) => {
 
-    const [modal, setModal] = useState(false);
+    const [datos, setDatos] = useState({
+        marca: '',
+        year: '',
+        plan: ''
+    });
 
-    console.log(modal);
+    const handleChangeDatos = (e) => {
+        setDatos({
+            ...datos,
+            [e.target.name]: e.target.value
+        })
+    };
+
+    const [error, setError] = useState('');
 
     return (
         <CotizadorContex.Provider
             value={{
-                modal,
-                setModal
+                datos,
+                handleChangeDatos
             }}
         >
             {children}
@@ -23,6 +34,7 @@ const CotizadorProvider = ({ children }) => {
     )
 }
 //4 exportar CotizadorProvider
+
 export {
     CotizadorProvider
 }
