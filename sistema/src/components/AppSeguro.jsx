@@ -1,7 +1,12 @@
 import React from 'react';
 import Formulario from './Formulario';
+import useCotizador from '../hooks/useCotizador'
+import Spinner from '../components/Spinner'
+import Resultado from '../components/Resultado'
 
 const AppSeguro = () => {
+    const { resultado, cargando } = useCotizador()
+    
     return (
         <>
             <header>
@@ -14,6 +19,7 @@ const AppSeguro = () => {
             rounded-lg p-10
             " >
                 <Formulario />
+                {cargando ? <Spinner /> : <Resultado />}
             </main>
         </>
     );
